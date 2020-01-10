@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{template :: createLayout(~{::title}, ~{::section}, ~{::link})}">
+<head>
+<title>Home Page</title>
+<link href="page1.css" rel="stylesheet" />
+<link href="page2.css" rel="stylesheet" />
+</head>
+<body>
+  <section>
+    <div class="container center">
+      <div th:each="product: ${products}" th:object="${product}"
+        class="inline-box vertical">
+        <p th:text="*{name}" style="font-weight: bold;" />
+        <p th:text="*{url}" />
+        <p th:text="*{price}" />
+      </div>
+
+      <hr />
+      <!--  parameterized view -->
+      <th:block th:each="product: ${products}">
+        <div
+          th:replace="~{productutils::showProductDetails(${product},false,'background:tomato')}"></div>
+      </th:block>
+      <hr />
+      <!-- default view -->
+      <th:block th:each="product: ${products}">
+        <div
+          th:replace="~{productutils::showProductDetails(${product},_,_)}"></div>
+      </th:block>
+    </div>
+  </section>
+
+</body>
+</html>

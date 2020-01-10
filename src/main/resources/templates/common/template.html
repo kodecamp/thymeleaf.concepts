@@ -1,0 +1,17 @@
+<html th:fragment="createLayout (title, content, link)"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:replace="${title}">Layout Title</title>
+  <!-- common (page independent) styles -->
+  <link href="app.css" rel="stylesheet"/>
+  <!-- included page specific styles -->
+  <th:block th:replace="${link}"/>
+</head>
+<body>
+  <h1>Layout H1</h1>
+  <div th:replace="${content}">
+    <p>Layout content</p>
+  </div>
+  <footer> Layout footer </footer>
+</body>
+</html>

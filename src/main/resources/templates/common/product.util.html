@@ -1,0 +1,9 @@
+
+<div xmlns:th="http://www.thymeleaf.org"
+  th:fragment="showProductDetails(product, isVertical, styles)" 
+  th:class="|inline-box ${isVertical ? 'vertical' : 'horizontal'}|"
+  th:style="${styles}">
+  <p th:text="${product.name}" style="font-weight: bold;" />
+  <p th:text="${product.url}" />
+  <p th:text="${product.price}" />
+</div>

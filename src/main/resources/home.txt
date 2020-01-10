@@ -1,0 +1,14 @@
+[(#{greet.message})]
+
+You are on : [(${pageTitle})]
+
+Product List 
+---------------------------------------
+[# th:each="p : ${products}"]
+  [# th:if="${p.price >= 200}"]
+    **[(${p.name})]**      [(${p.price})]   
+  [/]
+  [# th:unless="${p.price >= 200}"]
+    [(${p.name})]      [(${p.price})]   
+  [/]
+[/]
