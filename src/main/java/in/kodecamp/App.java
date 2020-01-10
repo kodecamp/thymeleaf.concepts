@@ -23,12 +23,15 @@ public class App {
 //    resolver.setSuffix(".txt");
     resolver.setTemplateMode(TemplateMode.HTML);
     resolver.setSuffix(".html");
+
     TemplateEngine engine = new TemplateEngine();
     engine.setTemplateResolver(resolver);
 
     // mutable writer
     Writer writer = new OutputStreamWriter(System.out);
+
     Context context = new Context();
+
     context.setVariable("pageTitle", "Home Page");
     context.setVariable("products", createProducts());
 

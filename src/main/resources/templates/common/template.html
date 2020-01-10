@@ -1,15 +1,18 @@
-<html th:fragment="createLayout (title, content, link)"
-  xmlns:th="http://www.thymeleaf.org">
+<!-- Defining a template (just like function in prog lang) -->
+<html xmlns:th="http://www.thymeleaf.org"
+  th:fragment="createLayout (title, content, link)">
 <head>
-  <title th:replace="${title}">Layout Title</title>
-  <!-- common (page independent) styles -->
-  <link href="app.css" rel="stylesheet"/>
-  <!-- included page specific styles -->
-  <th:block th:replace="${link}"/>
+<!-- entire tag will be replaced from the outcome of value -->
+<title th:replace="${title}">Layout Title</title>
+<!-- common (page independent) styles -->
+<link href="app.css" rel="stylesheet" />
+<!-- included page specific styles -->
+<th:block th:replace="${link}" />
 </head>
 <body>
   <h1>Layout H1</h1>
-  <div th:replace="${content}">
+  <!-- value of content will be inserted inside this tag -->
+  <div th:insert="${content}" class="content">
     <p>Layout content</p>
   </div>
   <footer> Layout footer </footer>

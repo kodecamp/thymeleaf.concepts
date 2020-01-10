@@ -9,6 +9,14 @@
 <body>
   <section>
     <div class="container center">
+
+      <div th:each="product: ${products}" 
+        class="inline-box vertical">
+        <p th:text="${product.name}" style="font-weight: bold;" />
+        <p th:text="${product.url}" />
+        <p th:text="${product.price}" />
+      </div>
+      
       <div th:each="product: ${products}" th:object="${product}"
         class="inline-box vertical">
         <p th:text="*{name}" style="font-weight: bold;" />
@@ -20,7 +28,7 @@
       <!--  parameterized view -->
       <th:block th:each="product: ${products}">
         <div
-          th:replace="~{productutils::showProductDetails(${product},false,'background:tomato')}"></div>
+          th:replace="~{productutils::showProductDetails(${product},false,'background:tomato;with:50%;')}"></div>
       </th:block>
       <hr />
       <!-- default view -->
